@@ -1,0 +1,23 @@
+{
+  "name": "py-service",
+  "base": "python:3.13-slim",
+  "note": "RUN costs are the values demo.py measured on this machine. Replace them with your own: time the step once and read the layer size from docker history.",
+  "copy": [
+    {"name": "manifest", "paths": ["pyproject.toml", "uv.lock", "requirements/"]},
+    {"name": "src",      "paths": ["src/"]},
+    {"name": "docs",     "paths": ["docs/"]},
+    {"name": "tests",    "paths": ["tests/"]},
+    {"name": "examples", "paths": ["examples/"]},
+    {"name": "meta",     "paths": ["CHANGES.rst", "README.md", "LICENSE.txt"]},
+    {"name": "ci",       "paths": [".github/", ".editorconfig", ".gitignore", ".pre-commit-config.yaml", ".readthedocs.yaml"]}
+  ],
+  "run": [
+    {"name": "install", "needs": ["manifest"], "seconds": 2.96, "megabytes": 1.36,
+     "argv": ["pip", "install", "--no-deps", "-r", "requirements.txt", "--target", "out/deps"]},
+    {"name": "compile", "needs": ["src", "install"], "seconds": 1.91, "megabytes": 1.57,
+     "argv": ["python", "-m", "compileall", "-q", "src", "out/deps"]},
+    {"name": "bundle",  "needs": ["docs"], "seconds": 0.47, "megabytes": 0.50,
+     "argv": ["python", "-m", "zipfile", "-c", "out/assets/docs.zip", "docs"]}
+  ],
+  "current_order": ["manifest", "install", "src", "docs", "tests", "examples", "meta", "ci", "compile", "bundle"]
+}

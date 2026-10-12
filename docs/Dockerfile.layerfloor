@@ -1,0 +1,35 @@
+FROM python:3.13-slim
+WORKDIR /app
+
+# layer group: manifest
+COPY pyproject.toml uv.lock setup.cfg setup.py ./
+COPY requirements/ ./requirements/
+
+# layer group: install
+RUN python -m layerfloor.steps deps --wheelhouse /wheels --manifest pyproject.toml --out out/deps
+
+# layer group: docs
+COPY docs/ ./docs/
+
+# layer group: bundle
+RUN python -m layerfloor.steps bundle --src docs --out out/assets --label docs
+
+# layer group: src
+COPY src/ ./src/
+
+# layer group: compile
+RUN python -m layerfloor.steps compile --src src --deps out/deps --out out/app
+
+# layer group: examples
+COPY examples/ ./examples/
+
+# layer group: tests
+COPY tests/ ./tests/
+
+# layer group: ci
+COPY .editorconfig .gitignore .pre-commit-config.yaml .readthedocs.yaml ./
+COPY .github/ ./.github/
+COPY .devcontainer/ ./.devcontainer/
+
+# layer group: meta
+COPY CHANGES.rst README.md LICENSE.txt CONTRIBUTING.rst ./

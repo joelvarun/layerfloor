@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "repo": "flask",
+    "fit_commits": 574,
+    "eval_commits": 25,
+    "metric": "seconds",
+    "price_seconds": {
+      "bundle": 0.3859,
+      "compile": 0.6203,
+      "install": 5.5164
+    },
+    "price_samples": {
+      "install": 89,
+      "compile": 121,
+      "bundle": 112
+    },
+    "orders": {
+      "monolith": [
+        "app",
+        "install",
+        "compile",
+        "bundle"
+      ],
+      "manifest-first": [
+        "manifest",
+        "install",
+        "app",
+        "compile",
+        "bundle"
+      ],
+      "churn-sort": [
+        "examples",
+        "tests",
+        "manifest",
+        "docs",
+        "ci",
+        "meta",
+        "src",
+        "install",
+        "compile",
+        "bundle"
+      ],
+      "layerfloor": [
+        "manifest",
+        "install",
+        "docs",
+        "bundle",
+        "src",
+        "compile",
+        "examples",
+        "tests",
+        "ci",
+        "meta"
+      ],
+      "layerfloor-seq": [
+        "examples",
+        "tests",
+        "manifest",
+        "docs",
+        "ci",
+        "meta",
+        "src",
+        "bundle",
+        "install",
+        "compile"
+      ]
+    },
+    "change_rates": {
+      "manifest": 0.2073170731707317,
+      "src": 0.3989547038327526,
+      "docs": 0.25435540069686413,
+      "tests": 0.16550522648083624,
+      "examples": 0.04529616724738676,
+      "meta": 0.3344947735191638,
+      "ci": 0.259581881533101
+    },
+    "step_costs": {
+      "manifest": {
+        "seconds": 0.0,
+        "bytes": 127805,
+        "reproducible": true,
+        "materialise_seconds": 0.0046
+      },
+      "src": {
+        "seconds": 0.0,
+        "bytes": 86578,
+        "reproducible": true,
+        "materialise_seconds": 0.0239
+      },
+      "docs": {
+        "seconds": 0.0,
+        "bytes": 475532,
+        "reproducible": true,
+        "materialise_seconds": 0.1661
+      },
+      "tests": {
+        "seconds": 0.0,
+        "bytes": 43737,
+        "reproducible": true,
+        "materialise_seconds": 0.1539
+      },
+      "examples": {
+        "seconds": 0.0,
+        "bytes": 14173,
+        "reproducible": true,
+        "materialise_seconds": 0.0736
+      },
+      "meta": {
+        "seconds": 0.0,
+        "bytes": 25234,
+        "reproducible": true,
+        "materialise_seconds": 0.0057
+      },
+      "ci": {
+        "seconds": 0.0,
+        "bytes": 4437,
+        "reproducible": true,
+        "materialise_seconds": 0.0211
+      },
+      "install": {
+        "seconds": 4.821,
+        "bytes": 1359911,
+        "reproducible": false,
+        "materialise_seconds": 0.0
+      },
+      "compile": {
+        "seconds": 0.6051,
+        "bytes": 233125,
+        "reproducible": false,
+        "materialise_seconds": 0.0
+      },
+      "bundle": {
+        "seconds": 0.5523,
+        "bytes": 504236,
+        "reproducible": false,
+        "materialise_seconds": 0.0
+      }
+    }
+  },
+  "results": {
+    "monolith": {
+      "wall_seconds": 5.26594355199777,
+      "bytes": 2864316.96,
+      "misses": 4.0,
+      "wall_seconds_total": 131.64858879994426,
+      "bytes_total": 71607924,
+      "per_commit_bytes": [
+        2872775,
+        2872721,
+        2839208,
+        2839567,
+        2839442,
+        2872786,
+        2844315,
+        2844272,
+        2895021,
+        2894779,
+        2918866,
+        2918867,
+        2861053,
+        2918797,
+        2861154,
+        2861303,
+        2861353,
+        2861448,
+        2861441,
+        2861509,
+        2861526,
+        2836414,
+        2836420,
+        2836408,
+        2836479
+      ],
+      "predicted_seconds": 5.978384600006393,
+      "predicted_bytes": 2872614.0,
+      "steps_rebuilt": 4.0,
+      "seconds": 6.522646350007562,
+      "commands_rerun": 3.0
+    },
+    "manifest-first": {
+      "wall_seconds": 3.0137894359987696,
+      "bytes": 1920783.4,
+      "misses": 3.56,
+      "wall_seconds_total": 75.34473589996924,
+      "bytes_total": 48019585,
+      "per_commit_bytes": [
+        1512718,
+        1512726,
+        2931310,
+        1479524,
+        1479460,
+        1512796,
+        2941471,
+        1484307,
+        3045272,
+        1534783,
+        3093020,
+        3093086,
+        2975102,
+        1558842,
+        1501195,
+        1501300,
+        1501337,
+        1501499,
+        1501540,
+        1501509,
+        1501526,
+        2925862,
+        1476477,
+        1476434,
+        1476489
+      ],
+      "predicted_seconds": 2.314432732004789,
+      "predicted_bytes": 1869754.84,
+      "steps_rebuilt": 3.48,
+      "seconds": 2.5508103420087718,
+      "commands_rerun": 2.28
+    },
+    "churn-sort": {
+      "wall_seconds": 15.685744520000299,
+      "bytes": 2368279.64,
+      "misses": 7.12,
+      "wall_seconds_total": 392.14361300000746,
+      "bytes_total": 59206991,
+      "per_commit_bytes": [
+        2141115,
+        2572902,
+        2827080,
+        2213123,
+        2571845,
+        2572989,
+        2761342,
+        2187318,
+        2338568,
+        2140926,
+        2290330,
+        2276050,
+        2350607,
+        2684785,
+        2730487,
+        2232289,
+        2125244,
+        2258382,
+        2187621,
+        2187535,
+        2187545,
+        2824249,
+        2125207,
+        2232175,
+        2187277
+      ],
+      "predicted_seconds": 5.978384600006393,
+      "predicted_bytes": 2298254.2,
+      "steps_rebuilt": 7.12,
+      "seconds": 6.522646350007562,
+      "commands_rerun": 3.0
+    },
+    "layerfloor": {
+      "wall_seconds": 1.8245191320008598,
+      "bytes": 1090615.84,
+      "misses": 6.88,
+      "wall_seconds_total": 45.612978300021496,
+      "bytes_total": 27265396,
+      "per_commit_bytes": [
+        43737,
+        1212924,
+        2827068,
+        352223,
+        1211762,
+        1212997,
+        2761277,
+        326444,
+        2338591,
+        43462,
+        2290299,
+        2276084,
+        2350629,
+        1324750,
+        1370463,
+        371472,
+        25817,
+        397505,
+        326684,
+        326673,
+        326682,
+        2824248,
+        25866,
+        371273,
+        326466
+      ],
+      "predicted_seconds": 1.8620311120036057,
+      "predicted_bytes": 915555.24,
+      "steps_rebuilt": 6.52,
+      "seconds": 2.250889640006353,
+      "commands_rerun": 1.6
+    },
+    "layerfloor-seq": {
+      "wall_seconds": 10.736232204003027,
+      "bytes": 2368293.96,
+      "misses": 7.12,
+      "wall_seconds_total": 268.40580510007567,
+      "bytes_total": 59207349,
+      "per_commit_bytes": [
+        2141098,
+        2572907,
+        2827117,
+        2213168,
+        2571747,
+        2573014,
+        2761359,
+        2187343,
+        2338596,
+        2140980,
+        2290260,
+        2276084,
+        2350711,
+        2684825,
+        2730481,
+        2232415,
+        2125245,
+        2258424,
+        2187568,
+        2187559,
+        2187578,
+        2824280,
+        2125086,
+        2232145,
+        2187359
+      ],
+      "predicted_seconds": 5.978384600006393,
+      "predicted_bytes": 2298254.2,
+      "steps_rebuilt": 7.12,
+      "seconds": 6.522646350007562,
+      "commands_rerun": 3.0
+    }
+  }
+}
